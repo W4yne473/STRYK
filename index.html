@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="STRYK — Performance gymwear and calisthenics apparel. Every Rep. Every Set. Every Day.">
+
+    <meta name="theme-color" content="#111111">
+
+    <title>STRYK — Train Without Limits</title>
+
+    <!-- Website Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Website Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Website Scripts -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <p>BUILT FOR EVERY REP. EVERY SET. EVERY DAY.</p>
+    </div>
+
+
+    <!-- Header / Navigation -->
+    <header class="site-header">
+        <nav class="navbar" aria-label="Main navigation">
+
+            <!-- Logo Space -->
+            <a href="#home" class="brand-logo" aria-label="STRYK home">
+                <!-- Replace this text with your logo image when ready -->
+                <span class="logo-placeholder">STRYK<span class="logo-period">.</span></span>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="nav-links" id="nav-links">
+                <a href="#home" class="nav-link">HOME</a>
+                <a href="#shop" class="nav-link">SHOP</a>
+                <a href="#collections" class="nav-link">COLLECTIONS</a>
+                <a href="#about" class="nav-link">OUR STORY</a>
+            </div>
+
+            <!-- Header Actions -->
+            <div class="nav-actions">
+                <a href="#shop" class="nav-shop-link">SHOP NOW <span>↗</span></a>
+
+                <button
+                    class="cart-button"
+                    id="cart-button"
+                    type="button"
+                    aria-label="Shopping cart"
+                >
+                    BAG <span class="cart-count" id="cart-count">0</span>
+                </button>
+
+                <button
+                    class="menu-toggle"
+                    id="menu-toggle"
+                    type="button"
+                    aria-label="Open navigation menu"
+                    aria-controls="nav-links"
+                    aria-expanded="false"
+                >
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero-section" id="home">
+
+            <!-- Hero Background Image Space -->
+            <div class="hero-background">
+                <!-- Add your campaign image through CSS later -->
+            </div>
+
+            <div class="hero-content">
+
+                <p class="hero-eyebrow">STRYK PERFORMANCE / EST. 2026</p>
+
+                <h1 class="hero-title">
+                    BUILT<br>
+                    TO <span>OUTWORK.</span>
+                </h1>
+
+                <p class="hero-description">
+                    No shortcuts. No excuses.
+                    Just you, your limits, and the work it takes to break them.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#shop" class="button button-primary">
+                        SHOP THE COLLECTION <span>↗</span>
+                    </a>
+
+                    <a href="#about" class="button button-secondary">
+                        DISCOVER STRYK
+                    </a>
+                </div>
+
+                <p class="hero-motto">
+                    EVERY REP. EVERY SET. EVERY DAY.
+                </p>
+
+            </div>
+
+            <div class="hero-bottom">
+                <span>ENGINEERED FOR MOVEMENT</span>
+                <span>GYMWEAR / CALISTHENICS / PERFORMANCE</span>
+            </div>
+
+        </section>
+
+
+        <!-- Brand Values / Marquee -->
+        <section class="brand-strip" aria-label="STRYK brand values">
+            <div class="brand-strip-content">
+                <span>STRENGTH</span>
+                <span>✳</span>
+                <span>DISCIPLINE</span>
+                <span>✳</span>
+                <span>PERFORMANCE</span>
+                <span>✳</span>
+                <span>PROGRESS</span>
+                <span>✳</span>
+            </div>
+        </section>
+
+
+        <!-- Featured Collections -->
+        <section class="collections-section section-padding" id="collections">
+
+            <div class="section-heading">
+                <div>
+                    <p class="section-eyebrow">FIND YOUR EDGE</p>
+                    <h2>MADE TO <span>MOVE.</span></h2>
+                </div>
+
+                <p class="section-description">
+                    Gear that moves with you, from your first rep
+                    to your strongest set.
+                </p>
+            </div>
+
+            <div class="collection-grid">
+
+                <!-- Collection 1 -->
+                <a href="#shop" class="collection-card collection-training">
+                    <div class="collection-image collection-image-one">
+                        <!-- Training apparel image goes here -->
+                    </div>
+
+                    <div class="collection-overlay">
+                        <span class="collection-number">01 / TRAINING</span>
+                        <h3>GYMWEAR</h3>
+                        <span class="collection-link">EXPLORE COLLECTION ↗</span>
+                    </div>
+                </a>
+
+                <!-- Collection 2 -->
+                <a href="#shop" class="collection-card collection-calisthenics">
+                    <div class="collection-image collection-image-two">
+                        <!-- Calisthenics apparel image goes here -->
+                    </div>
+
+                    <div class="collection-overlay">
+                        <span class="collection-number">02 / MOVEMENT</span>
+                        <h3>CALISTHENICS</h3>
+                        <span class="collection-link">EXPLORE COLLECTION ↗</span>
+                    </div>
+                </a>
+
+                <!-- Collection 3 -->
+                <a href="#shop" class="collection-card collection-essentials">
+                    <div class="collection-image collection-image-three">
+                        <!-- Essentials image goes here -->
+                    </div>
+
+                    <div class="collection-overlay">
+                        <span class="collection-number">03 / EVERYDAY</span>
+                        <h3>ESSENTIALS</h3>
+                        <span class="collection-link">EXPLORE COLLECTION ↗</span>
+                    </div>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- Shop / Featured Products -->
+        <section class="shop-section section-padding" id="shop">
+
+            <div class="section-heading">
+                <div>
+                    <p class="section-eyebrow">THE STRYK LINEUP</p>
+                    <h2>THE <span>ESSENTIALS.</span></h2>
+                </div>
+
+                <a href="#shop" class="text-link">
+                    VIEW ALL PRODUCTS ↗
+                </a>
+            </div>
+
+            <!-- Product Filters -->
+            <div class="product-filters" role="group" aria-label="Filter products">
+                <button class="filter-button active" type="button" data-filter="all" aria-pressed="true">ALL</button>
+                <button class="filter-button" type="button" data-filter="tops" aria-pressed="false">TOPS</button>
+                <button class="filter-button" type="button" data-filter="bottoms" aria-pressed="false">BOTTOMS</button>
+                <button class="filter-button" type="button" data-filter="accessories" aria-pressed="false">ACCESSORIES</button>
+            </div>
+
+            <!-- Products will be rendered here using JavaScript -->
+            <div class="product-grid" id="product-grid">
+
+                <!-- Product Card 1 -->
+                <article class="product-card" data-category="tops">
+                    <a href="#shop" class="product-image-link" aria-label="View STRYK Core Tee">
+                        <div class="product-image product-image-one">
+                            <span class="product-tag">ESSENTIAL</span>
+                            <!-- Product image goes here -->
+                        </div>
+                    </a>
+
+                    <div class="product-info">
+                        <div>
+                            <p class="product-category">TRAINING / TOPS</p>
+                            <h3 class="product-name">CORE TEE</h3>
+                        </div>
+
+                        <p class="product-price">Rp 000.000</p>
+                    </div>
+
+                    <button class="add-to-cart-button" type="button"
+                        data-product-id="core-tee"
+                        data-product-name="Core Tee"
+                        data-product-price="0">
+                        ADD TO BAG +
+                    </button>
+                </article>
+
+                <!-- Product Card 2 -->
+                <article class="product-card" data-category="tops">
+                    <a href="#shop" class="product-image-link" aria-label="View STRYK Oversized Tee">
+                        <div class="product-image product-image-two">
+                            <!-- Product image goes here -->
+                        </div>
+                    </a>
+
+                    <div class="product-info">
+                        <div>
+                            <p class="product-category">LIFESTYLE / TOPS</p>
+                            <h3 class="product-name">OVERSIZED TEE</h3>
+                        </div>
+
+                        <p class="product-price">Rp 000.000</p>
+                    </div>
+
+                    <button class="add-to-cart-button" type="button"
+                        data-product-id="oversized-tee"
+                        data-product-name="Oversized Tee"
+                        data-product-price="0">
+                        ADD TO BAG +
+                    </button>
+                </article>
+
+                <!-- Product Card 3 -->
+                <article class="product-card" data-category="bottoms">
+                    <a href="#shop" class="product-image-link" aria-label="View STRYK Training Shorts">
+                        <div class="product-image product-image-three">
+                            <!-- Product image goes here -->
+                        </div>
+                    </a>
+
+                    <div class="product-info">
+                        <div>
+                            <p class="product-category">TRAINING / BOTTOMS</p>
+                            <h3 class="product-name">TRAINING SHORTS</h3>
+                        </div>
+
+                        <p class="product-price">Rp 000.000</p>
+                    </div>
+
+                    <button class="add-to-cart-button" type="button"
+                        data-product-id="training-shorts"
+                        data-product-name="Training Shorts"
+                        data-product-price="0">
+                        ADD TO BAG +
+                    </button>
+                </article>
+
+                <!-- Product Card 4 -->
+                <article class="product-card" data-category="accessories">
+                    <a href="#shop" class="product-image-link" aria-label="View STRYK Wrist Wraps">
+                        <div class="product-image product-image-four">
+                            <!-- Product image goes here -->
+                        </div>
+                    </a>
+
+                    <div class="product-info">
+                        <div>
+                            <p class="product-category">PERFORMANCE / ACCESSORIES</p>
+                            <h3 class="product-name">WRIST WRAPS</h3>
+                        </div>
+
+                        <p class="product-price">Rp 000.000</p>
+                    </div>
+
+                    <button class="add-to-cart-button" type="button"
+                        data-product-id="wrist-wraps"
+                        data-product-name="Wrist Wraps"
+                        data-product-price="0">
+                        ADD TO BAG +
+                    </button>
+                </article>
+
+            </div>
+
+            <p class="shop-note">
+                PRODUCT NAMES, PRICES, AND IMAGES ARE PLACEHOLDERS.
+            </p>
+
+        </section>
+
+
+        <!-- Brand Story / Motto -->
+        <section class="manifesto-section" id="about">
+
+            <div class="manifesto-content">
+                <p class="section-eyebrow">MORE THAN WHAT YOU WEAR</p>
+
+                <h2>
+                    DISCIPLINE IS<br>
+                    <span>BUILT DAILY.</span>
+                </h2>
+
+                <p class="manifesto-description">
+                    STRYK is for those who show up when nobody's watching.
+                    For the early mornings, the failed attempts, the extra reps,
+                    and the progress nobody else sees.
+                </p>
+
+                <p class="manifesto-motto">
+                    EVERY REP. EVERY SET. EVERY DAY.
+                </p>
+
+                <a href="#shop" class="button button-primary">
+                    FIND YOUR GEAR ↗
+                </a>
+            </div>
+
+            <div class="manifesto-image">
+                <!-- Brand campaign image goes here -->
+            </div>
+
+        </section>
+
+
+        <!-- Newsletter -->
+        <section class="newsletter-section section-padding">
+
+            <div class="newsletter-content">
+                <p class="section-eyebrow">STAY IN THE LOOP</p>
+
+                <h2>BUILT FOR<br><span>WHAT'S NEXT.</span></h2>
+
+                <p>
+                    Get updates on new drops, upcoming collections,
+                    and everything happening at STRYK.
+                </p>
+
+                <form class="newsletter-form" id="newsletter-form">
+                    <label class="visually-hidden" for="newsletter-email">
+                        Email address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="newsletter-email"
+                        name="email"
+                        placeholder="YOUR EMAIL ADDRESS"
+                        autocomplete="email"
+                        required
+                    >
+
+                    <button type="submit" aria-label="Subscribe to STRYK updates">
+                        JOIN ↗
+                    </button>
+                </form>
+
+                <p class="newsletter-message" id="newsletter-message" aria-live="polite"></p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+                <!-- Footer Logo Space -->
+                <a href="#home" class="footer-logo" aria-label="STRYK home">
+                    STRYK<span>.</span>
+                </a>
+
+                <p>EVERY REP. EVERY SET. EVERY DAY.</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>EXPLORE</h3>
+                <a href="#home">Home</a>
+                <a href="#shop">Shop All</a>
+                <a href="#collections">Collections</a>
+                <a href="#about">Our Story</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>SUPPORT</h3>
+                <a href="mailto:support@stryk.example">Contact</a>
+                <a href="#footer-legal">Shipping & Returns</a>
+                <a href="#footer-legal">Privacy Policy</a>
+            </div>
+
+            <div class="footer-column">
+                <h3>FOLLOW STRYK</h3>
+                <!-- Replace # with your actual social media URLs -->
+                <a href="#" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+                <a href="#" target="_blank" rel="noopener noreferrer">TikTok ↗</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom" id="footer-legal">
+            <p>© <span id="current-year">2026</span> STRYK. ALL RIGHTS RESERVED.</p>
+            <p>MADE FOR MOVEMENT.</p>
+        </div>
+
+    </footer>
+
+
+    <!-- Shopping Cart Panel -->
+    <div class="cart-overlay" id="cart-overlay" hidden>
+        <button class="cart-backdrop" id="cart-backdrop" type="button"
+            aria-label="Close shopping cart"></button>
+
+        <aside class="cart-panel" id="cart-panel"
+            role="dialog" aria-modal="true" aria-labelledby="cart-title">
+
+            <div class="cart-header">
+                <h2 id="cart-title">YOUR BAG <span id="cart-item-count">(0)</span></h2>
+
+                <button class="cart-close" id="cart-close" type="button"
+                    aria-label="Close shopping cart">
+                    ✕
+                </button>
+            </div>
+
+            <div class="cart-items" id="cart-items">
+                <p class="cart-empty">YOUR BAG IS CURRENTLY EMPTY.</p>
+            </div>
+
+            <div class="cart-footer">
+                <div class="cart-subtotal">
+                    <span>SUBTOTAL</span>
+                    <span id="cart-subtotal">Rp 0</span>
+                </div>
+
+                <p class="cart-disclaimer">
+                    Shipping and payment options will be available when checkout is set up.
+                </p>
+
+                <button class="checkout-button" id="checkout-button" type="button" disabled>
+                    CHECKOUT — COMING SOON
+                </button>
+            </div>
+
+        </aside>
+    </div>
+
+
+</body>
+</html>

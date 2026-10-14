@@ -1,0 +1,1767 @@
+/* =========================================
+   STRYK — PERFORMANCE & CALISTHENICS
+   Main Stylesheet
+========================================= */
+
+/* 01. RESET & VARIABLES */
+
+:root {
+    --color-bg: #101010;
+    --color-bg-light: #171717;
+    --color-bg-card: #1c1c1c;
+    --color-white: #f5f5f0;
+    --color-grey: #a0a0a0;
+    --color-muted: #656565;
+    --color-border: rgba(255, 255, 255, 0.12);
+    --color-accent: #d5ff38;
+
+    --font-heading: "Barlow Condensed", sans-serif;
+    --font-body: "Inter", sans-serif;
+
+    --container-width: 1440px;
+    --page-padding: clamp(20px, 5vw, 76px);
+
+    --transition: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    background: var(--color-bg);
+    color: var(--color-white);
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+body.menu-open,
+body.cart-open {
+    overflow: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    color: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+::selection {
+    background: var(--color-accent);
+    color: #101010;
+}
+
+
+/* 02. SHARED ELEMENTS */
+
+.section-padding {
+    padding: 110px var(--page-padding);
+}
+
+.section-eyebrow {
+    margin-bottom: 14px;
+    color: var(--color-grey);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
+
+.section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 42px;
+}
+
+.section-heading h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(42px, 6vw, 76px);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -1px;
+}
+
+.section-heading h2 span,
+.manifesto-content h2 span,
+.newsletter-content h2 span {
+    color: var(--color-grey);
+}
+
+.section-description {
+    max-width: 330px;
+    color: var(--color-grey);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.text-link {
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: border-color var(--transition);
+}
+
+.text-link:hover {
+    border-color: var(--color-accent);
+}
+
+
+/* 03. ANNOUNCEMENT BAR */
+
+.announcement-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: 8px 16px;
+    background: var(--color-accent);
+    color: #101010;
+    text-align: center;
+}
+
+.announcement-bar p {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+}
+
+
+/* 04. HEADER & NAVIGATION */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(16, 16, 16, 0.94);
+    border-bottom: 1px solid var(--color-border);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+    max-width: var(--container-width);
+    min-height: 82px;
+    margin: 0 auto;
+    padding: 0 var(--page-padding);
+}
+
+/* LOGO SPACE */
+
+.brand-logo {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+}
+
+.logo-placeholder {
+    font-family: var(--font-heading);
+    font-size: 43px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -1.5px;
+}
+
+.logo-period,
+.footer-logo span {
+    color: var(--color-accent);
+}
+
+/*
+To use an actual logo image later:
+
+<a href="#home" class="brand-logo">
+    <img src="images/stryk-logo.svg"
+         alt="STRYK"
+         class="logo-image">
+</a>
+*/
+
+.logo-image {
+    display: block;
+    width: 145px;
+    height: 46px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.nav-link {
+    position: relative;
+    display: inline-block;
+    padding: 10px 0;
+    color: var(--color-grey);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    transition: color 0.3s ease;
+}
+
+/* The long bar underneath each link */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+
+    width: 100%;
+    height: 2px;
+
+    background: var(--color-accent);
+
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--color-white);
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+/* Keyboard accessibility */
+.nav-link:focus-visible {
+    color: var(--color-white);
+}
+
+.nav-link:focus-visible::after {
+    transform: scaleX(1);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 23px;
+}
+
+.nav-shop-link {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.nav-shop-link span {
+    color: var(--color-accent);
+}
+
+.cart-button {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.cart-count {
+    display: grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    font-size: 10px;
+}
+
+.menu-toggle {
+    display: none;
+    width: 34px;
+    height: 34px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 23px;
+    height: 2px;
+    background: var(--color-white);
+    transition: transform var(--transition);
+}
+
+
+/* 05. HERO SECTION */
+
+.hero-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: min(760px, calc(100svh - 116px));
+    padding: 110px var(--page-padding) 70px;
+    isolation: isolate;
+    overflow: hidden;
+    background: #121212;
+}
+
+/* Temporary abstract background until you add campaign photography. */
+
+.hero-background {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    background:
+        radial-gradient(
+            ellipse at 77% 43%,
+            rgba(213, 255, 56, 0.09),
+            transparent 30%
+        ),
+        radial-gradient(
+            ellipse at 78% 50%,
+            #292929 0%,
+            #171717 36%,
+            #111111 72%
+        );
+}
+
+.hero-section::after {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(16, 16, 16, 0.98) 0%,
+        rgba(16, 16, 16, 0.88) 42%,
+        rgba(16, 16, 16, 0.1) 100%
+    );
+    content: "";
+    pointer-events: none;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
+.hero-eyebrow {
+    margin-bottom: 25px;
+    color: var(--color-grey);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.hero-title {
+    max-width: 900px;
+    font-family: var(--font-heading);
+    font-size: clamp(78px, 12vw, 158px);
+    font-weight: 900;
+    line-height: 0.78;
+    letter-spacing: -3px;
+}
+
+.hero-title span {
+    color: var(--color-accent);
+}
+
+.hero-description {
+    max-width: 390px;
+    margin-top: 30px;
+    color: #b6b6b6;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 35px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    min-height: 49px;
+    padding: 0 23px;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    transition:
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        transform var(--transition);
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button-primary {
+    background: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    color: #101010;
+}
+
+.button-primary:hover {
+    background: #e4ff85;
+    border-color: #e4ff85;
+}
+
+.button-secondary {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: var(--color-white);
+}
+
+.button-secondary:hover {
+    border-color: var(--color-white);
+}
+
+.hero-motto {
+    margin-top: 35px;
+    color: var(--color-grey);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.hero-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: var(--container-width);
+    width: 100%;
+    margin: auto auto 0;
+    padding-top: 70px;
+    color: #777;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+
+/* 06. BRAND STRIP */
+
+.brand-strip {
+    overflow: hidden;
+    background: var(--color-bg-light);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.brand-strip-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 35px;
+    min-width: max-content;
+    padding: 24px var(--page-padding);
+}
+
+.brand-strip-content span {
+    color: #c7c7c7;
+    font-family: var(--font-heading);
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.brand-strip-content span:nth-child(even) {
+    color: var(--color-accent);
+    font-size: 15px;
+}
+
+
+/* 07. COLLECTIONS */
+
+.collections-section {
+    background: var(--color-bg);
+}
+
+.collection-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 17px;
+}
+
+.collection-card {
+    position: relative;
+    display: block;
+    min-width: 0;
+    aspect-ratio: 0.78;
+    overflow: hidden;
+    background: #202020;
+}
+
+.collection-image {
+    position: absolute;
+    inset: 0;
+    transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.collection-training {
+    background:
+        radial-gradient(ellipse at 50% 34%, #484848 0%, transparent 37%),
+        linear-gradient(145deg, #2c2c2c, #111111 80%);
+}
+
+.collection-calisthenics {
+    background:
+        radial-gradient(ellipse at 50% 32%, #414141 0%, transparent 37%),
+        linear-gradient(145deg, #202020, #090909 80%);
+}
+
+.collection-essentials {
+    background:
+        radial-gradient(ellipse at 50% 34%, #383838 0%, transparent 38%),
+        linear-gradient(145deg, #292929, #141414 80%);
+}
+
+.collection-card:hover .collection-image {
+    transform: scale(1.045);
+}
+
+.collection-card::after {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        transparent 25%,
+        rgba(0, 0, 0, 0.2) 45%,
+        rgba(0, 0, 0, 0.9) 100%
+    );
+    content: "";
+}
+
+.collection-overlay {
+    position: absolute;
+    z-index: 1;
+    right: 24px;
+    bottom: 27px;
+    left: 24px;
+}
+
+.collection-number {
+    color: #c0c0c0;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.collection-overlay h3 {
+    margin: 10px 0 14px;
+    font-family: var(--font-heading);
+    font-size: clamp(31px, 3.5vw, 48px);
+    font-weight: 800;
+    line-height: 1;
+}
+
+.collection-link {
+    display: inline-block;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+
+/* 08. SHOP SECTION */
+
+.shop-section {
+    background: #151515;
+}
+
+.product-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.filter-button {
+    padding: 10px 17px;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-grey);
+    cursor: pointer;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    transition: all var(--transition);
+}
+
+.filter-button:hover,
+.filter-button.active {
+    background: var(--color-white);
+    border-color: var(--color-white);
+    color: #101010;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.product-card {
+    min-width: 0;
+}
+
+.product-card[hidden] {
+    display: none !important;
+}
+
+.product-image-link {
+    display: block;
+}
+
+.product-image {
+    position: relative;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 0.78;
+    overflow: hidden;
+    background: #242424;
+    transition: background var(--transition);
+}
+
+.product-image::before {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.045),
+        transparent 45%,
+        rgba(0, 0, 0, 0.25)
+    );
+    content: "";
+}
+
+.product-image-one {
+    background-color: #292929;
+}
+
+.product-image-two {
+    background-color: #202020;
+}
+
+.product-image-three {
+    background-color: #252525;
+}
+
+.product-image-four {
+    background-color: #303030;
+}
+
+.product-tag {
+    position: absolute;
+    z-index: 1;
+    top: 14px;
+    left: 14px;
+    padding: 6px 9px;
+    background: var(--color-accent);
+    color: #101010;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.product-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 17px 0 13px;
+}
+
+.product-category {
+    margin-bottom: 6px;
+    color: var(--color-grey);
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+}
+
+.product-name {
+    font-family: var(--font-heading);
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.product-price {
+    flex-shrink: 0;
+    padding-top: 18px;
+    color: #d3d3d3;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.add-to-cart-button {
+    width: 100%;
+    min-height: 43px;
+    background: transparent;
+    border: 1px solid #555;
+    cursor: pointer;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    transition: all var(--transition);
+}
+
+.add-to-cart-button:hover {
+    background: var(--color-white);
+    border-color: var(--color-white);
+    color: #101010;
+}
+
+.shop-note {
+    margin-top: 25px;
+    color: var(--color-muted);
+    font-size: 8px;
+    letter-spacing: 1.3px;
+}
+
+
+/* 09. BRAND MANIFESTO */
+
+.manifesto-section {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    min-height: 570px;
+    background: #101010;
+}
+
+.manifesto-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 95px var(--page-padding);
+}
+
+.manifesto-content h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(56px, 7vw, 94px);
+    font-weight: 900;
+    line-height: 0.88;
+    letter-spacing: -1px;
+}
+
+.manifesto-description {
+    max-width: 430px;
+    margin: 26px 0;
+    color: var(--color-grey);
+    font-size: 12px;
+    line-height: 2;
+}
+
+.manifesto-motto {
+    margin-bottom: 28px;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.manifesto-image {
+    min-height: 450px;
+    background:
+        radial-gradient(ellipse at 50% 35%, #404040 0%, transparent 36%),
+        linear-gradient(135deg, #252525, #111111);
+}
+
+
+/* 10. NEWSLETTER */
+
+.newsletter-section {
+    background: #1a1a1a;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.newsletter-content {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.newsletter-content h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(55px, 8vw, 92px);
+    font-weight: 900;
+    line-height: 0.88;
+}
+
+.newsletter-content > p:not(.section-eyebrow):not(.newsletter-message) {
+    max-width: 400px;
+    margin: 22px auto 30px;
+    color: var(--color-grey);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.newsletter-form {
+    display: flex;
+    width: 100%;
+    max-width: 490px;
+    min-height: 53px;
+    margin: 0 auto;
+    border-bottom: 1px solid #696969;
+}
+
+.newsletter-form input {
+    flex: 1;
+    width: 0;
+    min-width: 0;
+    background: transparent;
+    border: none;
+    color: var(--color-white);
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.newsletter-form input::placeholder {
+    color: #888;
+}
+
+.newsletter-form input:focus-visible {
+    outline: none;
+}
+
+.newsletter-form:focus-within {
+    border-color: var(--color-accent);
+}
+
+.newsletter-form button {
+    padding: 0 15px;
+    background: transparent;
+    border: none;
+    color: var(--color-accent);
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.newsletter-message {
+    min-height: 22px;
+    margin-top: 12px;
+    color: var(--color-accent);
+    font-size: 11px;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+
+/* 11. FOOTER */
+
+.site-footer {
+    padding: 65px var(--page-padding) 0;
+    background: #0b0b0b;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 45px;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding-bottom: 65px;
+}
+
+.footer-logo {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 53px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+.footer-brand p {
+    margin-top: 15px;
+    color: var(--color-grey);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.footer-column {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 13px;
+}
+
+.footer-column h3 {
+    margin-bottom: 5px;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.footer-column a {
+    color: var(--color-grey);
+    font-size: 11px;
+    transition: color var(--transition);
+}
+
+.footer-column a:hover {
+    color: var(--color-accent);
+}
+
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 22px 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.footer-bottom p {
+    color: #777;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+
+/* 12. SHOPPING CART DRAWER */
+
+.cart-overlay[hidden] {
+    display: none !important;
+}
+
+.cart-overlay:not([hidden]) {
+    position: fixed;
+    z-index: 200;
+    inset: 0;
+    display: block;
+}
+
+.cart-backdrop {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.72);
+    border: none;
+    cursor: pointer;
+    animation: fade-in 0.25s ease;
+}
+
+.cart-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    width: min(460px, 100%);
+    height: 100%;
+    padding: 28px;
+    background: #151515;
+    border-left: 1px solid var(--color-border);
+    animation: slide-in 0.3s ease;
+}
+
+.cart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding-bottom: 23px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.cart-header h2 {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.cart-header h2 span {
+    color: var(--color-grey);
+    font-family: var(--font-body);
+    font-size: 12px;
+}
+
+.cart-close {
+    width: 38px;
+    height: 38px;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.cart-close:hover {
+    background: var(--color-white);
+    color: #101010;
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 22px 0;
+}
+
+.cart-empty {
+    padding: 50px 0;
+    color: var(--color-grey);
+    font-size: 10px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.cart-footer {
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border);
+}
+
+.cart-subtotal {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.cart-disclaimer {
+    margin: 12px 0 20px;
+    color: var(--color-grey);
+    font-size: 10px;
+    line-height: 1.8;
+}
+
+.checkout-button {
+    width: 100%;
+    min-height: 50px;
+    background: var(--color-accent);
+    border: 1px solid var(--color-accent);
+    color: #101010;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+
+/* 13. ANIMATIONS */
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(35px);
+        opacity: 0.5;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =========================================
+   14. RESPONSIVE DESIGN — TABLETS
+========================================= */
+
+@media (max-width: 1000px) {
+    :root {
+        --page-padding: 30px;
+    }
+
+    .navbar {
+        gap: 20px;
+    }
+
+    .nav-links {
+        gap: 32px;
+    }
+
+    .nav-actions {
+        gap: 15px;
+    }
+
+    .nav-shop-link {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: clamp(75px, 12vw, 120px);
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px 18px;
+    }
+
+    .collection-grid {
+        gap: 12px;
+    }
+
+    .collection-overlay {
+        right: 15px;
+        bottom: 20px;
+        left: 15px;
+    }
+
+    .manifesto-section {
+        grid-template-columns: 1fr 0.75fr;
+    }
+
+    .footer-main {
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 35px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+}
+
+
+/* =========================================
+   15. RESPONSIVE DESIGN — MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+    :root {
+        --page-padding: 20px;
+    }
+
+    .section-padding {
+        padding-top: 75px;
+        padding-bottom: 75px;
+    }
+
+    .announcement-bar {
+        min-height: 30px;
+    }
+
+    .announcement-bar p {
+        font-size: 8px;
+        letter-spacing: 1.2px;
+    }
+
+    .navbar {
+        min-height: 70px;
+        gap: 12px;
+    }
+
+    .logo-placeholder {
+        font-size: 38px;
+    }
+
+    .logo-image {
+        width: 120px;
+        height: 40px;
+    }
+
+    .nav-actions {
+        gap: 15px;
+        margin-left: auto;
+    }
+
+    .cart-button {
+        gap: 6px;
+        font-size: 9px;
+    }
+
+    .cart-count {
+        width: 20px;
+        height: 20px;
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-shrink: 0;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:first-child {
+        transform: translateY(4px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span:last-child {
+        transform: translateY(-4px) rotate(-45deg);
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 100px;
+        right: 0;
+        left: 0;
+        display: none;
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+        max-height: calc(100svh - 100px);
+        overflow-y: auto;
+        padding: 20px var(--page-padding) 35px;
+        background: #111111;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-link {
+        padding: 19px 0;
+        border-bottom: 1px solid var(--color-border);
+        font-size: 12px;
+    }
+
+    .hero-section {
+        min-height: 690px;
+        min-height: min(760px, calc(100svh - 100px));
+        padding-top: 85px;
+        padding-bottom: 30px;
+    }
+
+    .hero-section::after {
+        background: linear-gradient(
+            90deg,
+            rgba(16, 16, 16, 0.93),
+            rgba(16, 16, 16, 0.5)
+        );
+    }
+
+    .hero-title {
+        font-size: clamp(68px, 15vw, 105px);
+        letter-spacing: -1.5px;
+    }
+
+    .hero-eyebrow {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    .hero-description {
+        max-width: 320px;
+        font-size: 12px;
+    }
+
+    .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+        max-width: 290px;
+    }
+
+    .button {
+        min-height: 48px;
+    }
+
+    .hero-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+        padding-top: 45px;
+        font-size: 7px;
+    }
+
+    .brand-strip-content {
+        justify-content: flex-start;
+        gap: 25px;
+        padding-top: 19px;
+        padding-bottom: 19px;
+    }
+
+    .brand-strip-content span {
+        font-size: 16px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+        margin-bottom: 28px;
+    }
+
+    .section-heading h2 {
+        font-size: clamp(43px, 11vw, 65px);
+    }
+
+    .section-description {
+        font-size: 12px;
+    }
+
+    .collection-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .collection-card {
+        aspect-ratio: 1.05;
+    }
+
+    .collection-overlay {
+        right: 23px;
+        bottom: 24px;
+        left: 23px;
+    }
+
+    .collection-overlay h3 {
+        font-size: 43px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px 12px;
+    }
+
+    .product-info {
+        flex-direction: column;
+        gap: 4px;
+        padding-top: 13px;
+    }
+
+    .product-name {
+        font-size: 22px;
+    }
+
+    .product-price {
+        padding-top: 0;
+    }
+
+    .product-category {
+        font-size: 7px;
+    }
+
+    .product-tag {
+        top: 9px;
+        left: 9px;
+        padding: 5px 7px;
+        font-size: 7px;
+    }
+
+    .add-to-cart-button {
+        min-height: 40px;
+        font-size: 8px;
+    }
+
+    .product-filters {
+        gap: 7px;
+    }
+
+    .filter-button {
+        padding: 9px 12px;
+        font-size: 8px;
+    }
+
+    .manifesto-section {
+        grid-template-columns: 1fr;
+    }
+
+    .manifesto-content {
+        padding: 75px var(--page-padding);
+    }
+
+    .manifesto-content h2 {
+        font-size: clamp(59px, 13vw, 83px);
+    }
+
+    .manifesto-image {
+        min-height: 300px;
+    }
+
+    .newsletter-content h2 {
+        font-size: clamp(58px, 13vw, 82px);
+    }
+
+    .newsletter-content > p:not(.section-eyebrow):not(.newsletter-message) {
+        font-size: 11px;
+    }
+
+    .site-footer {
+        padding-top: 50px;
+    }
+
+    .footer-main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 40px 25px;
+        padding-bottom: 45px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cart-panel {
+        padding: 23px 20px;
+    }
+}
+
+
+/* =========================================
+   16. SMALL MOBILE SCREENS
+========================================= */
+
+@media (max-width: 380px) {
+    :root {
+        --page-padding: 15px;
+    }
+
+    .nav-actions {
+        gap: 10px;
+    }
+
+    .logo-placeholder {
+        font-size: 34px;
+    }
+
+    .hero-title {
+        font-size: 65px;
+    }
+
+    .hero-eyebrow {
+        letter-spacing: 1.4px;
+    }
+
+    .product-name {
+        font-size: 19px;
+    }
+
+    .product-price {
+        font-size: 9px;
+    }
+
+    .filter-button {
+        padding: 8px 9px;
+        font-size: 7px;
+    }
+}
+
+/* =========================================
+   INTERACTION EFFECTS
+========================================= */
+
+/* Buttons lift slightly */
+.button,
+.add-to-cart-button,
+.filter-button,
+.checkout-button {
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.button:hover,
+.add-to-cart-button:hover,
+.filter-button:hover {
+    transform: translateY(-3px);
+}
+
+/* Collection cards lift */
+.collection-card {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.collection-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* Product cards lift */
+.product-card {
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Keep touch devices comfortable */
+@media (hover: none) {
+    .collection-card:hover,
+    .product-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .nav-link::after {
+        transition: none;
+    }
+
+    .button:hover,
+    .add-to-cart-button:hover,
+    .filter-button:hover,
+    .collection-card:hover,
+    .product-card:hover {
+        transform: none;
+    }
+}
+
+
+/* ================================
+   STRYK MOBILE NAVIGATION
+================================ */
+
+.menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        position: relative;
+    }
+
+    /* Hide the desktop-only text link */
+    .nav-shop-link {
+        display: none;
+    }
+
+    /* Hamburger button */
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        width: 42px;
+        height: 42px;
+        padding: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: #ffffff;
+        transition: transform 0.25s ease;
+    }
+
+    /* Dropdown menu */
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+
+        padding: 8px 20px;
+        background: #111111;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-8px);
+
+        transition:
+            opacity 0.25s ease,
+            transform 0.25s ease,
+            visibility 0.25s ease;
+    }
+
+    .nav-links.is-open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .nav-links .nav-link {
+        display: block;
+        padding: 17px 4px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-links .nav-link:last-child {
+        border-bottom: none;
+    }
+
+    /* Animate hamburger into an X */
+    .menu-toggle[aria-expanded="true"] span:first-child {
+        transform: translateY(4px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span:last-child {
+        transform: translateY(-4px) rotate(-45deg);
+    }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .nav-links,
+    .menu-toggle span {
+        transition: none;
+    }
+}
+
+
+/* ================================
+   STRYK PRODUCT FILTERS
+================================ */
+
+.product-card {
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.product-card.filter-hidden {
+    display: none;
+}
+
+.filter-button {
+    cursor: pointer;
+    transition: color 0.2s ease, background 0.2s ease,
+                border-color 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .product-card,
+    .filter-button {
+        transition: none;
+    }
+}
+
+
+/* ================================
+   STRYK FILTER ANIMATIONS
+================================ */
+
+.product-card {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Hide cards smoothly before removing them from layout */
+.product-card.filter-exit {
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
+}
+
+/* Hidden cards take no space */
+.product-card.filter-hidden {
+    display: none;
+}
+
+/* Active filter button */
+.filter-button {
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .product-card,
+    .filter-button {
+        transition: none;
+        animation: none;
+    }
+}
